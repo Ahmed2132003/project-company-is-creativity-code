@@ -1,0 +1,31 @@
+<!-- services/templates/services/service_list.html -->
+
+{% extends "services/base.html" %}
+{% block content %}
+
+<h2>Available Services</h2>
+<table class="table" style="color: black;">
+    <thead>
+        <tr style="color: white;">
+            <th>Service Name</th>
+            <th>Category</th>
+            <th>Level</th>
+            <th>Price</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for service in services %}
+        <tr style="color: white;">
+            <td>{{ service.name }}</td>
+            <td>{{ service.get_category_display }}</td>
+            <td>{{ service.level }}</td>
+            <td>${{ service.price }}</td>
+            <td>
+                <a href="{% url 'services:request_service' service.id %}" class="btn btn-primary">Request Service</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

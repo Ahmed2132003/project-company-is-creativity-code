@@ -1,0 +1,35 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Account Summary{% endblock %}
+
+{% block content %}
+<h2>Account Summary</h2>
+<p>Total Income: {{ account.total_income }}</p>
+<p>Total Expense: {{ account.total_expense }}</p>
+<p>Net Profit: {{ account.net_profit }}</p>
+
+<h3>Expenses</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Expense For</th>
+            <th>Paid By</th>
+            <th>Amount</th>
+            <th>Reason</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for expense in expenses %}
+        <tr>
+            <td>{{ expense.expense_for }}</td>
+            <td>{{ expense.paid_by }}</td>
+            <td>{{ expense.amount }}</td>
+            <td>{{ expense.reason }}</td>
+            <td>{{ expense.expense_date }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<a href="{% url 'accounts:add_expense' %}" class="btn btn-primary">Add Expense</a>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'clients/base.html' %}
+
+{% block title %}UPDATE CLINTES {% endblock %}
+
+{% block content %}
+<h2 class="text-center">UPDATE CLINTES</h2>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id">ID:</label>
+        <input type="text" id="id" name="id" class="form-control" value="{{ clint.id }}" required>
+    </div>
+    <div class="form-group">
+        <label for="name">Clint Name:</label>
+        <input type="text" id="name" name="name" class="form-control" value="{{ clint.name }}" required>
+    </div>
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" value="{{ clint.email }}" required>
+    </div>
+    <div class="form-group">
+        <label for="phone_number">Phone:</label>
+        <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ clint.phone_number }}" required>
+    </div>
+    <div class="form-group">
+        <label for="number_of_transection">Number of Transection:</label>
+        <input type="text" id="number_of_transection" name="number_of_transection" class="form-control" value="{{ clint.number_of_transection }}" required>
+    </div>
+    <div class="form-group">
+        <label for="first_transction">First Transction:</label>
+        <input type="text" id="first_transction" name="first_transction" class="form-control" value="{{ clint.first_transction }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Update clint</button>
+</form>
+<a href="{% url 'clients:Client_list' %}" class="btn btn-secondary">Back clint list</a>
+{% endblock %}

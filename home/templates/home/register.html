@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Register</title>
+</head>
+<body>
+    <h2>SIGN UP</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <label>USERNAME</label>
+        <input type="text" name="username" required>
+        <label>EMAIL</label>
+        <input type="email" name="email" required>
+        <label>PASSWORD</label>
+        <input type="password" name="password" required>
+        <button type="submit">SIGN UP</button>
+        <select name="account_type" required>
+            <option value="client">clint</option>
+            <option value="employee">employee</option>
+            <option value="manager">manger</option>
+        </select>
+    </form>
+    <p>your have account<a href="{% url 'login' %}">LOGIN</a></p>
+</body>
+</html>

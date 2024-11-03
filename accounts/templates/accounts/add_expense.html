@@ -1,0 +1,13 @@
+{% extends 'accounts/base.html' %}
+
+{% block title %}Add Expense{% endblock %}
+
+{% block content %}
+<h2>Add Expense</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+<a href="{% url 'accounts:account_summary' %}" class="btn btn-secondary">Back to Summary</a>
+{% endblock %}

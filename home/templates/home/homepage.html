@@ -1,0 +1,90 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <nav class="navbar">
+        <ul>
+            
+            <li><a href="{% url 'employees:employee_list' %}">Employees</a></li>
+            <li><a href="{% url 'clients:Client_list' %}">Clients</a></li>
+            <li><a href="{% url 'accounts:account_summary' %}">Accounts</a></li>
+            <li><a href="{% url 'services:service_list' %}">Services</a></li>
+            <li><a href="{% url 'transactions:transaction_list' %}">Transactions</a></li>
+            <li><a href="{% url 'about:about' %}">about</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+
+        </ul>
+<head>
+    <meta charset="UTF-8">
+    <title> creativity code system نظام شركة كريتيفيتي كود</title>
+    <title> creativity code system </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">نظام شركة كريتيفيتي كود</h1>
+        <img src="{% static 'images/lo.png' %}" alt="شعار الشركة" class="logo">
+        <p class="description">
+            نحن شركة كريتيفيتي كود شركة برمجيات صممت عن طريق المهندس أحمد إبراهيم وهي شركة تعمل في جميع مجالات البرمجة، سواءً مواقع الويب، تطبيقات الهاتف وتطبيقات الحاسوب، ونماذج الذكاء الاصطناعي باستخدام التعلم الآلي والتعلم العميق والرؤية الحاسوبية. نعمل أيضًا في تحليل البيانات، بغض النظر عن حجمها، وكذلك في الويب سكرابينج والأمن السيبراني.
+        </p>
+        <p class="description">
+            We are Creativity Code, a software company founded by engineer Ahmed Ibrahim. We work in all fields of programming, including web development, mobile apps, and computer applications. We specialize in AI model creation using machine learning, deep learning, and computer vision. We also offer data analysis services, regardless of size, as well as web scraping and cybersecurity.
+        </p>
+
+        <!-- أقسام النظام -->
+        <div class="section">
+            <h2>Employees</h2>
+            <p class="description">
+                قسم الموظفين وهذا القسم يتيح للموظف تسجيل حضوره و تسليم التاسك المطلوب منه ورؤية حسابه في الشركة اي يمكنه الوصول الي صفحة الحسابات والموظفين و الخدمات والمعاملات ومع تحديد  صلحياته من الادمن 
+            </p>
+            <p class="description">
+                Employees section: This section allows the employee to record his attendance, submit the required task, and view his account in the company, i.e. he can access the accounts, employees, services, and transactions pages, and specify his powers from the admin.
+            </p>
+            <a href="{% url 'employees:employee_list' %}">Go to Employees Section</a>
+        </div>
+        <div class="section">
+            <h2>Clients</h2>
+            <p class="description">
+                قسم العملاء يتيح للعميل اضافة خدمات ورؤية حسابه والدفعات المدفوعه والمتبقية ويمكنه ايضا الوصول الي المعاملات ورؤيتها ويمكنه ايضا تقييم الشركة
+            </p>
+            <p class="description">
+                The customer section allows the customer to add services, view his account, paid and remaining payments, and can also access and view transactions and evaluate the company.
+            </p>
+            <a href="{% url 'clients:Client_list' %}">Go to Clients Section</a>
+        </div>
+        <!-- Repeat for other sections like Services, Transactions, and Accounts -->
+        <div class="section">
+            <h2>Accounts</h2>
+            <p class="description">
+                قسم الحسابات وهوا قسم للادارة المالية صلاحيات الوصول تكون علي حسب نوع حسابك اداري او عميل او موظف كل طرف له صلاحيات خاصه 
+            </p>
+            <p class="description">
+                The accounts department is a department for financial management. Access permissions depend on the type of your account: administrative, customer, or employee. Each party has special permissions.
+            </p>
+            <a href="{% url 'accounts:account_summary' %}">Go to Accounts Section</a>
+        </div>
+        <div class="section">
+            <h2>Services</h2>
+            <p class="description">
+                قسم الخدمات هوا قسم يوجد به جميع خدماتنا واسعارها يمكنك طلب خدمه من خلاله ان كنت اداري او عميل او موظف وبه سلة لتجميع الخدمات وايضا تقدر تتابع الخدمه من خلال المعاملات
+            </p>
+            <p class="description">
+                The services section is a section that contains all our services and their prices. You can request a service through it whether you are an administrator, a customer, or an employee. It has a basket to collect services and you can also follow up on the service through transactions.
+            </p>
+            <a href="{% url 'services:service_list' %}">Go to Services Section</a>
+        </div>
+        <div class="section">
+            <h2>Transactions</h2>
+            <p class="description">
+                قسم المعاملات هوا قسم تتابع فيه الخدمات مجراها في اطار العمل او انتهت او تم تسليمها ايضا حسب صلاحيات حسابك 
+            </p>
+            <p class="description">
+                The transactions section is the section where you follow up on the services that are ongoing within the framework of work, or have been completed or delivered, according to your account permissions.
+            </p>
+            <a href="{% url 'transactions:transaction_list' %}">Go to Transactions Section</a>
+        </div>
+    </div>
+
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

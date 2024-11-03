@@ -1,0 +1,17 @@
+<!-- services/templates/services/edit_service_request.html -->
+{% extends "services/base.html" %}
+<h1>Edit Service Request</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="service_id">Service:</label>
+    <select name="service_id" id="service_id">
+        {% for service in services %}
+        <option value="{{ service.id }}" {% if service.id == service_request.service.id %}selected{% endif %}>{{ service.title }}</option>
+        {% endfor %}
+    </select>
+    
+    <label for="is_completed">Is Completed:</label>
+    <input type="checkbox" name="is_completed" {% if service_request.is_completed %}checked{% endif %}>
+
+    <button type="submit">Update</button>
+</form>

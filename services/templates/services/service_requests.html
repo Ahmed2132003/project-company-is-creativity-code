@@ -1,0 +1,53 @@
+<!-- services/templates/services/service_requests.html -->
+
+{% extends "services/base.html" %}
+{% block content %}
+<h2>Service Requests</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Customer Name</th>
+            <th>Service Name</th>
+            <th>Service Level</th>
+            <th>Service Price</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for request in requests %}
+            <tr>
+                <td>{{ request.customer.name }}</td>
+                <td>{{ request.service.name }}</td>
+                <td>{{ request.service.level }}</td>
+                <td>{{ request.service.price }}</td>
+                <td>
+                    {% if request.is_completed %}
+                        Completed
+                    {% else %}
+                        Not Completed
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'services:edit_service_request' request.id %}">Edit</a>
+                    <a href="{% url 'services:delete_service_request' request.id %}">Delete</a>
+                </td>
+            </tr>
+            <td>
+    
+        {% endfor %}
+    </tbody>
+</table>
+<!-- Add this form above the table in service_requests.html -->
+
+<form method="get" action="{% url 'services:service_requests' %}">
+    <label for="filter">Filter by status:</label>
+    <select name="filter" id="filter">
+        <option value="">All</option>
+        <option value="completed">Completed</option>
+        <option value="not_completed">Not Completed</option>
+    </select>
+    <button type="submit">Apply Filter</button>
+</form>
+
+{% endblock %}

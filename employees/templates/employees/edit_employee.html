@@ -1,0 +1,28 @@
+{% extends 'employees/base.html' %}
+
+{% block title %}تعديل موظف{% endblock %}
+
+{% block content %}
+<h2 class="text-center">تعديل بيانات الموظف</h2>
+<form method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="name">اسم الموظف:</label>
+        <input type="text" id="name" name="name" class="form-control" value="{{ employee.name }}" required>
+    </div>
+    <div class="form-group">
+        <label for="email">البريد الإلكتروني:</label>
+        <input type="email" id="email" name="email" class="form-control" value="{{ employee.email }}" required>
+    </div>
+    <div class="form-group">
+        <label for="phone_number">الهاتف:</label>
+        <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ employee.phone_number }}" required>
+    </div>
+    <div class="form-group">
+        <label for="job_title">المسمى الوظيفي:</label>
+        <input type="text" id="job_title" name="job_title" class="form-control" value="{{ employee.job_title }}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">تحديث الموظف</button>
+</form>
+<a href="{% url 'employees:employee_list' %}" class="btn btn-secondary">عودة لقائمة الموظفين</a>
+{% endblock %}
