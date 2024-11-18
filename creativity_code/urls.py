@@ -4,7 +4,7 @@ from home.views import login_view, register_view
 from django.contrib import admin
 urlpatterns = [
     path('admin/',admin.site.urls),
-    path('home/', main_views.homepage, name='homepage'),
+    path('', main_views.homepage, name='homepage'),
     path('home/employees/', include('employees.urls')),
     path('home/clients/', include('clients.urls')),
     path('home/services/', include('services.urls')),
