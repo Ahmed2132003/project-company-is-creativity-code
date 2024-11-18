@@ -1,12 +1,42 @@
-<!-- services/templates/services/service_list.html -->
-
-{% extends "services/base.html" %}
-{% block content %}
-
-<h2>Available Services</h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Service List</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: white;
+                color: black;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #8132b9;
+                padding: 10px;
+                text-align: center;
+            }
+            th {
+                background-color: #8132b9;
+            }
+            .btn {
+                background-color: #8132b9;
+                color: black;
+                border: 1px solid black;
+            }
+            .btn:hover {
+                background-color: rgb(173, 41, 230);
+                color: white;
+            }
+        </style>
+<h2 style="background-color: #8132b9; color:#fff;">Available Services</h2>
 <table class="table" style="color: black;">
     <thead>
-        <tr style="color: white;">
+        <tr style="color: #fff;">
             <th>Service Name</th>
             <th>Category</th>
             <th>Level</th>
@@ -16,16 +46,15 @@
     </thead>
     <tbody>
         {% for service in services %}
-        <tr style="color: white;">
+        <tr style="color: black;">
             <td>{{ service.name }}</td>
             <td>{{ service.get_category_display }}</td>
             <td>{{ service.level }}</td>
             <td>${{ service.price }}</td>
             <td>
-                <a href="{% url 'services:request_service' service.id %}" class="btn btn-primary">Request Service</a>
+                <a href="{% url 'services:request_service' service.id %}" class="btn btn-primary" style="color: #fff;">Request Service</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-{% endblock %}

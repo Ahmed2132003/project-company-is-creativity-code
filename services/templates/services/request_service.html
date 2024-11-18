@@ -1,30 +1,67 @@
-<!-- services/templates/services/request_service.html -->
-{% extends "services/base.html" %}
-{% block content %}
-<h2>Request Service</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Requests</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #8132b9;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #8132b9;
+        }
+        .btn {
+            background-color: #8132b9;
+            color: black;
+            border: 1px solid black;
+        }
+        .btn:hover {
+            background-color: rgb(173, 41, 230);
+            color: white;
+        }
+    </style>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center" style="background-color: #8132b9; color: #fff;" >Request Service</h1>
+    {% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
 
-{% if error_message %}
-    <p style="color: red;">{{ error_message }}</p>
-{% endif %}
-
-<form method="post">
-    {% csrf_token %}
-    <div>
-        <label for="customer_name">Customer Name:</label>
-        <input type="text" id="customer_name" name="customer_name" required>
-    </div>
-    <div>
-        <label for="service_name">Service Name:</label>
-        <input type="text" id="service_name" name="service_name" value="{{ service.name }}" readonly>
-    </div>
-    <div>
-        <label for="service_level">Service Level:</label>
-        <input type="text" id="service_level" name="service_level" value="{{ service.level }}" readonly>
-    </div>
-    <div>
-        <label for="service_price">Service Price:</label>
-        <input type="text" id="service_price" name="service_price" value="{{ service.price }}" readonly>
-    </div>
-    <button type="submit">Submit Request</button>
-</form>
-{% endblock %}
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" id="customer_name" name="customer_name" required>
+        </div>
+        <div>
+            <label for="service_name">Service Name:</label>
+            <input type="text" id="service_name" name="service_name" value="{{ service.name }}" readonly>
+        </div>
+        <div>
+            <label for="service_level">Service Level:</label>
+            <input type="text" id="service_level" name="service_level" value="{{ service.level }}" readonly>
+        </div>
+        <div>
+            <label for="service_price">Service Price:</label>
+            <input type="text" id="service_price" name="service_price" value="{{ service.price }}" readonly>
+        </div>
+        <button type="submit" style="color: #fff;background-color: #8132b9; ">Submit Request</button>
+    </form>
+</div>
+<footer class="text-center mt-4" style="color: #fff;background-color: #8132b9;">
+    <p>creativity code جميع الحقوق محفوظة للشركة المالكة &copy; 2024</p>
+</footer>
+</body>

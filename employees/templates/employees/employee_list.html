@@ -1,9 +1,39 @@
-{% extends 'employees/base.html' %}
-
-{% block title %}Employees list{% endblock %}
-
-{% block content %}
-<h2 class="text-center">Employees list</h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title style="background-color: #8132b9;color: #fff;">Employee List</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: white;
+                color: black;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #8132b9;
+                padding: 10px;
+                text-align: center;
+            }
+            th {
+                background-color: #8132b9;
+            }
+            .btn {
+                background-color: #8132b9;
+                color: black;
+                border: 1px solid black;
+            }
+            .btn:hover {
+                background-color: rgb(173, 41, 230);
+                color: white;
+            }
+        </style>
+<h2 class="text-center" style="background-color: #8132b9; color: #fff;">Employees list</h2>
 <table class="table table-dark table-striped">
     <thead>
         <tr>
@@ -13,12 +43,13 @@
             <th>Job title</th>
             <th>Hire date</th>
             <th>Employment type</th>
+            <th>action</th>
             
         </tr>
     </thead>
     <tbody>
         {% for employee in employees %}
-        <tr>
+        <tr style="background-color: #fff; color: #000;">
             <td>{{ employee.name }}</td>
             <td>{{ employee.email }}</td>
             <td>{{ employee.phone_number }}</td>
@@ -26,12 +57,11 @@
             <td>{{ employee.hire_date}}</td>
             <td>{{ employee.employment_type}}</td>
             <td>
-                <a href="{% url 'employees:edit_employee' employee.pk %}" class="btn btn-warning btn-sm">تعديل</a>
-                <a href="{% url 'employees:delete_employee' employee.pk %}" class="btn btn-danger btn-sm">حذف</a>
+                <a href="{% url 'employees:edit_employee' employee.pk %}" class="btn btn-warning btn-sm" style="color: #fff;">تعديل</a>
+                <a href="{% url 'employees:delete_employee' employee.pk %}" class="btn btn-danger btn-sm" style="color: #fff;">حذف</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
-<a href="{% url 'employees:add_employee' %}" class="btn btn-primary">إضافة موظف</a>
-{% endblock %}
+<a href="{% url 'employees:add_employee' %}" class="btn btn-primary" style="color: #fff;">إضافة موظف</a>

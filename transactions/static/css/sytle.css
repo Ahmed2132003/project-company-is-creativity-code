@@ -1,23 +1,36 @@
-
+/* تعيين الخلفية البيضاء والنصوص السوداء */
 body {
-    background-color: #000; /* لون الخلفية أسود */
-    color: #ffffff; /* لون النص أبيض */
+    background-color: #ffffff; /* خلفية بيضاء */
+    color: #000000; /* نصوص سوداء */
 }
 
-.navbar {
-    background-color: #333333; /* لون خلفية شريط التنقل */
+/* تغيير لون الأزرار إلى لافندر */
+.btn-lavender {
+    background-color: #e6e6fa; /* لون لافندر فاتح */
+    color: #000000; /* نصوص سوداء */
+    border: none;
 }
 
-.navbar-brand, .navbar-nav .nav-link {
-    color: #ffffff !important; /* لون النص في شريط التنقل */
+.btn-lavender:hover {
+    background-color: #d3d3f2; /* تدرج داكن عند التفاعل */
+    color: #000000; /* النص يبقى أسود */
 }
 
-.container, footer {
-    color: #ffffff; /* لون النص */
+.btn-warning {
+    background-color: #e6e6fa; /* لون لافندر فاتح */
+    color: #000000; /* نصوص سوداء */
 }
 
-.footer {
-    background-color: #333333; /* خلفية التذييل */
-    color: #ffffff;
+.btn-danger {
+    background-color: #f44336; /* لون أحمر */
+    color: white;
 }
 
+.table th, .table td {
+    background-color: #ffffff; /* خلفية الجدول بيضاء */
+    color: #000000; /* نصوص سوداء */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f9f9f9; /* خلفية صفوف الجدول بالتناوب */
+}

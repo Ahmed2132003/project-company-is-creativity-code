@@ -1,13 +1,42 @@
-{% extends 'accounts/base.html' %}
-
-{% block title %}Add Expense{% endblock %}
-
-{% block content %}
-<h2>Add Expense</h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Service List</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: white;
+                color: black;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #8132b9;
+                padding: 10px;
+                text-align: center;
+            }
+            th {
+                background-color: #8132b9;
+            }
+            .btn {
+                background-color: #8132b9;
+                color: black;
+                border: 1px solid black;
+            }
+            .btn:hover {
+                background-color: rgb(173, 41, 230);
+                color: white;
+            }
+        </style> 
+<h2 style="background-color: #8132b9; color: #fff;">Add Expense</h2>
 <form method="post">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit" class="btn btn-success">Save</button>
+    <button type="submit" class="btn btn-success" style="background-color: #8132b9; color: #fff;">Save</button>
 </form>
-<a href="{% url 'accounts:account_summary' %}" class="btn btn-secondary">Back to Summary</a>
-{% endblock %}
+<a href="{% url 'accounts:account_summary' %}" class="btn btn-secondary" style="background-color: #8132b9; color: #fff;">Back to Summary</a>

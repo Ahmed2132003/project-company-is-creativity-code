@@ -1,9 +1,39 @@
-{% extends 'clients/base.html' %}
-
-{% block title %}Client List{% endblock %}
-
-{% block content %}
-<h2 class="text-center">Client List</h2>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Service List</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: white;
+                color: black;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #8132b9;
+                padding: 10px;
+                text-align: center;
+            }
+            th {
+                background-color: #8132b9;
+            }
+            .btn {
+                background-color: #8132b9;
+                color: black;
+                border: 1px solid black;
+            }
+            .btn:hover {
+                background-color: rgb(173, 41, 230);
+                color: white;
+            }
+        </style>
+<h2 class="text-center" style="background-color: #8132b9; color: #fff;">Client List</h2>
 <table class="table table-dark table-striped">
     <thead>
         <tr>
@@ -18,7 +48,7 @@
     </thead>
     <tbody>
         {% for clint in clints %}
-        <tr>
+        <tr style="background-color: #fff; color: #8132b9;">
             <td>{{ clint.id }}</td>
             <td>{{ clint.name }}</td>
             <td>{{ clint.email }}</td>
@@ -26,8 +56,8 @@
             <td>{{ clint.number_of_transection }}</td>
             <td>{{ clint.first_transction }}</td>
             <td>
-                <a href="{% url 'clients:edit_clients' clint.pk %}" class="btn btn-warning btn-sm">Update</a>
-                <a href="{% url 'clients:delete_client' clint.pk %}" class="btn btn-danger btn-sm">Delete</a>
+                <a href="{% url 'clients:edit_clients' clint.pk %}" class="btn btn-warning btn-sm" style="background-color: #8132b9; color: #fff;">Update</a>
+                <a href="{% url 'clients:delete_client' clint.pk %}" class="btn btn-danger btn-sm"style="background-color: #8132b9; color: #fff;">Delete</a>
             </td>
         </tr>
         {% empty %}
@@ -37,5 +67,4 @@
         {% endfor %}
     </tbody>
 </table>
-<a href="{% url 'clients:Add_client' %}" class="btn btn-primary">Add Client</a>
-{% endblock %}
+<a href="{% url 'clients:Add_client' %}" class="btn btn-primary" style="background-color: #8132b9; color: #fff;">Add Client</a>

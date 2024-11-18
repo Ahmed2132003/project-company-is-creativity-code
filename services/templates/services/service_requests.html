@@ -1,53 +1,92 @@
-<!-- services/templates/services/service_requests.html -->
-
-{% extends "services/base.html" %}
-{% block content %}
-<h2>Service Requests</h2>
-
-<table>
-    <thead>
-        <tr>
-            <th>Customer Name</th>
-            <th>Service Name</th>
-            <th>Service Level</th>
-            <th>Service Price</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for request in requests %}
-            <tr>
-                <td>{{ request.customer.name }}</td>
-                <td>{{ request.service.name }}</td>
-                <td>{{ request.service.level }}</td>
-                <td>{{ request.service.price }}</td>
-                <td>
-                    {% if request.is_completed %}
-                        Completed
-                    {% else %}
-                        Not Completed
-                    {% endif %}
-                </td>
-                <td>
-                    <a href="{% url 'services:edit_service_request' request.id %}">Edit</a>
-                    <a href="{% url 'services:delete_service_request' request.id %}">Delete</a>
-                </td>
-            </tr>
-            <td>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Requests</title>
     
-        {% endfor %}
-    </tbody>
-</table>
-<!-- Add this form above the table in service_requests.html -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #8132b9;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #8132b9;
+        }
+        .btn {
+            background-color: #8132b9;
+            color: black;
+            border: 1px solid black;
+        }
+        .btn:hover {
+            background-color: rgb(173, 41, 230);
+            color: white;
+        }
+    </style>
 
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center" style="background-color: #8132b9; color: #fff;" >Service request</h1>
+    <table>
+        <thead>
+            <tr style="color: #fff;">
+                <th>Customer Name</th>
+                <th>Service Name</th>
+                <th>Service Level</th>
+                <th>Service Price</th>
+                <th>Status</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+                <tr>
+                    <td>{{ request.customer.name }}</td>
+                    <td>{{ request.service.name }}</td>
+                    <td>{{ request.service.level }}</td>
+                    <td>{{ request.service.price }}</td>
+                    <td>
+                        {% if request.is_completed %}
+                            Completed
+                        {% else %}
+                            Not Completed
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{% url 'services:edit_service_request' request.id %}" style="color: #8132b9;">Edit</a>
+                        <a href="{% url 'services:delete_service_request' request.id %}" style="color: #8132b9;">Delete</a>
+                    </td>
+                </tr>
+                <td>
+        
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 <form method="get" action="{% url 'services:service_requests' %}">
     <label for="filter">Filter by status:</label>
-    <select name="filter" id="filter">
+    <select name ="filter" id="filter" style="background-color: #8132b9; color: #fff;">
         <option value="">All</option>
         <option value="completed">Completed</option>
         <option value="not_completed">Not Completed</option>
     </select>
-    <button type="submit">Apply Filter</button>
+    <button type="submit" style="background-color: #8132b9; color: #fff;">Apply Filter</button>
 </form>
 
-{% endblock %}
+<footer class="text-center mt-4" style="color: #fff;background-color: #8132b9;">
+    <p>creativity code جميع الحقوق محفوظة للشركة المالكة &copy; 2024</p>
+</footer>
+</body>
+<!-- Add this form above the table in service_requests.html -->
+

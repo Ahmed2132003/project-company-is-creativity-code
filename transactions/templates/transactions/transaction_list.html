@@ -1,40 +1,78 @@
-{% extends "transactions/base.html" %}
-
-{% block title %}Transaction List{% endblock %}
-
-{% block content %}
-<h1 class="text-center">Transaction List</h1>
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr style="color: white;">
-            <th>ID</th>
-            <th>Service Name</th>
-            <th>Amount Paid</th>
-            <th>Amount Remaining</th>
-            <th>Transaction Date</th>
-            <th>Status</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for transaction in transactions %}
-        <tr style="color: white;">
-                <td>{{ transaction.id }}</td>
-                <td>{{ transaction.service_request.service.name }}</td>
-                <td>{{ transaction.amount_paid }}</td>
-                <td>{{ transaction.amount_remaining }}</td>
-                <td>{{ transaction.transaction_date }}</td>
-                <td>{{ transaction.transaction_status }}</td>
-                <td>
-                    <a href="{% url 'transactions:edit_transaction' transaction.id %}" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="{% url 'transactions:delete_transaction' transaction.id %}" class="btn btn-danger btn-sm">Delete</a>
-                </td>
-            </tr>
-        {% empty %}
-            <tr>
-                <td colspan="7" class="text-center">No transactions to display.</td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction List</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #8132b9;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #8132b9;
+        }
+        .btn {
+            background-color: #8132b9;
+            color: black;
+            border: 1px solid black;
+        }
+        .btn:hover {
+            background-color: rgb(173, 41, 230);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center" style="background-color: #8132b9; color: #fff;" >Transaction List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Service Name</th>
+                    <th>Amount Paid</th>
+                    <th>Amount Remaining</th>
+                    <th>Transaction Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.id }}</td>
+                    <td>{{ transaction.service_request.service.name }}</td>
+                    <td>{{ transaction.amount_paid }}</td>
+                    <td>{{ transaction.amount_remaining }}</td>
+                    <td>{{ transaction.transaction_date }}</td>
+                    <td>{{ transaction.transaction_status }}</td>
+                    <td>
+                        <a href="{% url 'transactions:edit_transaction' transaction.id %}" class="btn btn-sm">Edit</a>
+                        <a href="{% url 'transactions:delete_transaction' transaction.id %}" class="btn btn-sm">Delete</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7">No transactions to display.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <footer class="text-center mt-4" style="color: #fff;background-color: #8132b9;">
+        <p>creativity code جميع الحقوق محفوظة للشركة المالكة &copy; 2024</p>
+    </footer>
+</body>
+</html>

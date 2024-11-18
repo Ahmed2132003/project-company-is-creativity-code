@@ -1,7 +1,20 @@
 /* إعدادات الخلفية والألوان */
-/* تنسيق القائمة (منيو بار) */
+body {
+    background-color: #ffffff; /* خلفية بيضاء */
+    color: #000000; /* نصوص سوداء */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* القائمة (منيو بار) */
 .navbar {
-    background-color: #070707; /* لون بنفسجي */
+    background-color: #ffffff; /* لون خلفية أبيض */
     padding: 10px 0;
     text-align: center;
 }
@@ -18,133 +31,28 @@
 }
 
 .navbar a {
-    color: gold;
+    color: #000; /* لون لافندر */
     text-decoration: none;
     font-size: 1.2em;
     padding: 10px 15px;
     border-radius: 5px;
-    transition: background-color 0.3s;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .navbar a:hover {
-    background-color: #b310c2; /* لون بنفسجي فاتح عند التمرير */
+    background-color: #8132b9; /* لون لافندر فاتح عند التمرير */
+    transform: scale(1.1); /* تكبير الزر */
 }
 
-/* الترتيب المركزي للمحتوى */
-.container {
-    text-align: center;
-    max-width: 800px;
-    padding: 20px;
-    margin-top: 20px;
-}
-
-body {
-    background-color: #000; /* خلفية سوداء */
-    color: #fff; /* نصوص بيضاء */
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-/* حاوية لتوسيط المحتوى */
-.container {
-    text-align: center;
-    max-width: 1200px;
-    padding: 20px;
-}
-
-/* تنسيق العنوان */
-.title {
-    background-color: #b310c2;
-    font-size: 2em;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #faf2f2; /* لون بنفسجي */
-}
-
-/* تنسيق الصورة */
-.logo {
-    max-width: 200px;
-    height: auto;
-    margin-bottom: 20px;
-}
-
-/* تنسيق الوصف */
-.description {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    color: #faf2f2;
-}
-
-/* تنسيق الأقسام */
-.section {
-    color: gold;
-    margin-bottom: 15px;
-}
-
-/* تنسيق الروابط */
-.section a {
-    display: inline-block;
-    background-color: #b310c2; /* لون بنفسجي */
-    color: #fff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 10px;
-}
-
-.section a:hover {
-    background-color: #b310c2;
-}
-.n
-
-/* تأثير النبض */
-.pulse {
-    animation: pulse-animation 0.3s ease-in-out;
-}
-
-@keyframes pulse-animation {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-/* تنسيقات الصفحة العامة */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #dedee4; /* لون الخلفية */
-    color: #333; /* لون النص */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-}
 /* صندوق النموذج */
 .form-container {
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 2rem;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     text-align: center;
-}
-
-/* عنوان النموذج */
-.form-container h2 {
-    margin-bottom: 1rem;
-    color: #333;
 }
 
 /* الحقول المدخلات */
@@ -162,33 +70,70 @@ body {
 .form-container button {
     width: 100%;
     padding: 10px;
-    background-color: #2c1c94; /* اللون الأساسي */
-    color: #fff;
+    background-color: #8132b9; /* لون لافندر */
+    color: #000; /* نص أسود */
     border: none;
     border-radius: 4px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
 .form-container button:hover {
-    background-color: #261780;
+    background-color: #e6e6fa; /* لون لافندر أفتح عند التمرير */
+    transform: scale(1.05); /* تأثير التكبير */
 }
 
-/* رابط تسجيل الخروج */
-.logout-link {
-    color: #333;
+.form-container button:active {
+    background-color: #cda4d0; /* لون لافندر أغمق عند الضغط */
+    transform: scale(0.95); /* تأثير التصغير */
+}
+
+/* أقسام النظام */
+.section a {
+    display: inline-block;
+    background-color: #8132b9; /* لون لافندر */
+    color: #000; /* نص أسود */
+    padding: 10px 20px;
     text-decoration: none;
-    font-size: 14px;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: transform 0.3s, background-color 0.3s;
 }
 
-.logout-link:hover {
-    text-decoration: underline;
+.section a:hover {
+    background-color: #a364cf; /* لون لافندر أفتح */
+    transform: scale(1.05); /* تأثير التكبير */
 }
 
-/* رسائل الخطأ أو التنبيه */
-.alert {
-    color: #e74c3c;
-    font-size: 14px;
-    margin-bottom: 1rem;
+.section a:active {
+    background-color: #cda4d0; /* لون لافندر أغمق */
+    transform: scale(0.95); /* تأثير التصغير */
+}
+
+/* تأثير النبض */
+.pulse {
+    animation: pulse-animation 0.3s ease-in-out;
+}
+
+@keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.page-title {
+    background-color: #8132b9; /* اللون المطلوب */
+    color: white; /* لون النص */
+    text-align: center; /* توسيط النص */
+    padding: 6px 0; /* مسافة داخلية للأعلى والأسفل */
+    font-size: 24px; /* حجم الخط */
+    font-family: Arial, sans-serif; /* نوع الخط */
+    width: 100%; /* عرض كامل الصفحة */
+    margin-bottom: 20px; /* إضافة مسافة أسفل العنوان */
 }

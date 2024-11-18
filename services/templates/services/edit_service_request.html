@@ -1,17 +1,53 @@
-<!-- services/templates/services/edit_service_request.html -->
-{% extends "services/base.html" %}
-<h1>Edit Service Request</h1>
-<form method="POST">
-    {% csrf_token %}
-    <label for="service_id">Service:</label>
-    <select name="service_id" id="service_id">
-        {% for service in services %}
-        <option value="{{ service.id }}" {% if service.id == service_request.service.id %}selected{% endif %}>{{ service.title }}</option>
-        {% endfor %}
-    </select>
-    
-    <label for="is_completed">Is Completed:</label>
-    <input type="checkbox" name="is_completed" {% if service_request.is_completed %}checked{% endif %}>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Service</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: white;
+            color: black;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #8132b9;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #8132b9;
+        }
+        .btn {
+            background-color: #8132b9;
+            color: black;
+            border: 1px solid black;
+        }
+        .btn:hover {
+            background-color: rgb(173, 41, 230);
+            color: white;
+        }
+    </style>
+<body>
+    <div class="container mt-4">
+        <h1 class="text-center" style="background-color: #8132b9; color: #fff;" >Service request</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="service_id">Service:</label>
+        <select name="service_id" id="service_id" style="background-color: #8132b9; color: #fff;" >
+            {% for service in services %}
+            <option value="{{ service.id }}" {% if service.id == service_request.service.id %}selected{% endif %} style="color: #fff;">{{ service.title }}</option>
+            {% endfor %}
+        </select>
+        
+        <label for="is_completed">Is Completed:</label>
+        <input type="checkbox" name="is_completed" {% if service_request.is_completed %}checked{% endif %}>
 
-    <button type="submit">Update</button>
-</form>
+        <button type="submit" style="background-color: #8132b9;">Update</button>
+    </form>
+</body>

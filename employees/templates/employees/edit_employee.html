@@ -1,28 +1,57 @@
-{% extends 'employees/base.html' %}
-
-{% block title %}تعديل موظف{% endblock %}
-
-{% block content %}
-<h2 class="text-center">تعديل بيانات الموظف</h2>
-<form method="POST">
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Service List</title>
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body {
+                background-color: white;
+                color: black;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 20px;
+            }
+            th, td {
+                border: 1px solid #8132b9;
+                padding: 10px;
+                text-align: center;
+            }
+            th {
+                background-color: #8132b9;
+            }
+            .btn {
+                background-color: #8132b9;
+                color: black;
+                border: 1px solid black;
+            }
+            .btn:hover {
+                background-color: rgb(173, 41, 230);
+                color: white;
+            }
+        </style>
+<h2 class="text-center" style="background-color: #8132b9; color: #fff;">تعديل بيانات الموظف</h2>
+<form method="POST" style="background-color: #fff; color: #8132b9;">
     {% csrf_token %}
     <div class="form-group">
         <label for="name">اسم الموظف:</label>
-        <input type="text" id="name" name="name" class="form-control" value="{{ employee.name }}" required>
+        <input type="text" id="name" name="name" class="form-control" value="{{ employee.name }}" required style="background-color: #8132b9;color: #fff;">
     </div>
     <div class="form-group">
         <label for="email">البريد الإلكتروني:</label>
-        <input type="email" id="email" name="email" class="form-control" value="{{ employee.email }}" required>
+        <input type="email" id="email" name="email" class="form-control" value="{{ employee.email }}" required style="background-color: #8132b9;color: #fff;">
     </div>
     <div class="form-group">
         <label for="phone_number">الهاتف:</label>
-        <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ employee.phone_number }}" required>
+        <input type="text" id="phone_number" name="phone_number" class="form-control" value="{{ employee.phone_number }}" required style="background-color: #8132b9;color: #fff;">
     </div>
     <div class="form-group">
         <label for="job_title">المسمى الوظيفي:</label>
-        <input type="text" id="job_title" name="job_title" class="form-control" value="{{ employee.job_title }}" required>
+        <input type="text" id="job_title" name="job_title" class="form-control" value="{{ employee.job_title }}" required style="background-color: #8132b9;color: #fff;">
     </div>
-    <button type="submit" class="btn btn-primary">تحديث الموظف</button>
+    <button type="submit" class="btn btn-primary" style="background-color: #8132b9;color: #fff;">تحديث الموظف</button>
 </form>
-<a href="{% url 'employees:employee_list' %}" class="btn btn-secondary">عودة لقائمة الموظفين</a>
-{% endblock %}
+<a href="{% url 'employees:employee_list' %}" class="btn btn-secondary" style="background-color: #8132b9;color: #fff;">عودة لقائمة الموظفين</a>
